@@ -1,10 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Boston House Price Predictor</title>
+    <meta charset="UTF-8">
+    <title>ML House Price Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            color: #00ffd5;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #2e2e2e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 213, 0.3);
+            width: 400px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #444;
+            color: #fff;
+        }
+
+        input[type="submit"] {
+            background-color: #00ffd5;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00e6bf;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #00ff95;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Boston House Price Prediction App</h1>
-    <p>Use API or UI to get predictions</p>
+    <h1>🏠 House Price Predictor</h1>
+    <form action="/predict" method="post">
+        <input type="number" step="any" name="CRIM" placeholder="CRIM (per capita crime rate)" value="{{ inputs.CRIM if inputs else '' }}">
+        <input type="number" step="any" name="ZN" placeholder="ZN (residential land zoned)" value="{{ inputs.ZN if inputs else '' }}">
+        <input type="number" step="any" name="INDUS" placeholder="INDUS (non-retail business acres)" value="{{ inputs.INDUS if inputs else '' }}">
+        <input type="number" step="any" name="CHAS" placeholder="CHAS (Charles River dummy variable)" value="{{ inputs.CHAS if inputs else '' }}">
+        <input type="number" step="any" name="NOX" placeholder="NOX (nitric oxides concentration)" value="{{ inputs.NOX if inputs else '' }}">
+        <input type="number" step="any" name="RM" placeholder="RM (average rooms per dwelling)" value="{{ inputs.RM if inputs else '' }}">
+        <input type="number" step="any" name="AGE" placeholder="AGE (owner-occupied units built prior to 1940)" value="{{ inputs.AGE if inputs else '' }}">
+        <input type="number" step="any" name="DIS" placeholder="DIS (distances to employment centers)" value="{{ inputs.DIS if inputs else '' }}">
+        <input type="number" step="any" name="RAD" placeholder="RAD (index of accessibility to highways)" value="{{ inputs.RAD if inputs else '' }}">
+        <input type="number" step="any" name="TAX" placeholder="TAX (property-tax rate)" value="{{ inputs.TAX if inputs else '' }}">
+        <input type="number" step="any" name="PTRATIO" placeholder="PTRATIO (pupil-teacher ratio)" value="{{ inputs.PTRATIO if inputs else '' }}">
+        <input type="number" step="any" name="B" placeholder="B (proportion of blacks)" value="{{ inputs.B if inputs else '' }}">
+        <input type="number" step="any" name="LSTAT" placeholder="LSTAT (% lower status of the population)" value="{{ inputs.LSTAT if inputs else '' }}">
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+    <div class="result">
+        <p>{{ prediction_text }}</p>
+    </div>
+    {% endif %}
 </body>
 </html>
