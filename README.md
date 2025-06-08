@@ -1,14 +1,17 @@
-### Boston House Pricing Predictions
-### software and tools requirements
+#  Boston House Pricing Predictions
 
-1.[GithubAccount] (https://github.com)
-2.[HerokuAccount](https://heruko.com)
-3.[VSCodeIDE](https://code.visualstudio.com)
-4.[GitCLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)
+## Software and Tools Requirements
 
+1. [GitHub Account](https://github.com)
+2. [Heroku Account](https://heroku.com)
+3. [Visual Studio Code (VS Code)](https://code.visualstudio.com)
+4. [Git CLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)
 
-Create a new environment
+##  Create a New Environment
 
-   conda create --name boston_env python=3.11
-   conda activate boston_env
+Using Conda (recommended):
+
+```bash
+conda create --name boston_env python=3.11 -y
+conda activate boston_env
 
